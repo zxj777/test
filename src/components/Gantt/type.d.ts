@@ -14,7 +14,7 @@ interface GanttOptions {
 }
 
 interface SVGElementAttrs {
-  appendTo: HTMLElement;
+  appendTo: Element;
   innerHTML?: string;
   [k: string]: any;
 }

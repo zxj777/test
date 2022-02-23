@@ -14,10 +14,14 @@ export function createSvg(tag: keyof SVGElementTagNameMap, attrs: SVGElementAttr
         const parent = attrs.appendTo;
         parent.appendChild(el);
     } else if (attr === 'innerHTML') {
-        el.innerHTML = attrs.innerHTML;
+        el.innerHTML = attrs.innerHTML as string;
     } else {
         el.setAttribute(attr, attrs[attr]);
     }
   }
   return el;
+}
+
+export const timeProcessor = {
+
 }
