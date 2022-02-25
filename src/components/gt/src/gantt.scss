@@ -7,7 +7,7 @@ $light-yellow: #fcf8e3 !default;
 $text-muted: #666 !default;
 $text-light: #555 !default;
 $text-color: #333 !default;
-$blue: #a3a3ff !default;
+$blue: blue !default;
 $handle-color: #ddd !default;
 
 .gantt {
@@ -71,7 +71,7 @@ $handle-color: #ddd !default;
 		dominant-baseline: central;
 		text-anchor: middle;
 		font-size: 12px;
-		font-weight: lighter;
+		font-weight: normal;
 
 		&.big {
 			fill: $text-light;
@@ -142,27 +142,29 @@ $handle-color: #ddd !default;
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: rgba(0, 0, 0, 0.8);
-		padding: 0;
-		color: #959da5;
+		padding: 10px;
+		color: #000;
 		border-radius: 3px;
+		background-color: #fff;
+		box-shadow: 0 0 7px 0 rgb(28 34 43 / 20%);
+		line-height: 20px;
 
 		.title {
-			border-bottom: 3px solid $blue;
-			padding: 10px;
+			// border-bottom: 3px solid $blue;
+			// padding: 10px;
 		}
 
 		.subtitle {
-			padding: 10px;
-			color: #dfe2e5;
+			// padding: 10px;
+			// color: #dfe2e5;
 		}
 
-		.pointer {
-			position: absolute;
-			height: 5px;
-			margin: 0 0 0 -5px;
-			border: 5px solid transparent;
-			border-top-color: rgba(0, 0, 0, 0.8);
-		}
+		// .pointer {
+		// 	position: absolute;
+		// 	height: 5px;
+		// 	margin: 0 0 0 -5px;
+		// 	border: 5px solid transparent;
+		// 	border-top-color: #fff;
+		// }
 	}
 }

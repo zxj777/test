@@ -1,6 +1,8 @@
+import type { Dayjs } from 'dayjs'
+
 type ElementParam = HTMLElement | string;
 
-interface Task {
+interface TaskParam {
   id: number | string;
   name: string;
   startTime: string;
@@ -9,18 +11,25 @@ interface Task {
   dependencies: string | string[]
 }
 
+
+interface Task extends TaskParam {
+  _startTime: Dayjs;
+  _endTime: Dayjs
+}
+
 interface GanttOptions {
 
 }
 
 interface SVGElementAttrs {
-  appendTo: Element;
+  appendTo?: Element;
   innerHTML?: string;
   [k: string]: any;
 }
 
 export {
   ElementParam,
+  TaskParam,
   Task,
   GanttOptions,
   SVGElementAttrs

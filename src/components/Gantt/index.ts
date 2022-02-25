@@ -1,29 +1,28 @@
-import { ElementParam, Task, GanttOptions } from './type'
+import { ElementParam, Task, TaskParam, GanttOptions } from './type'
 import { getElement, createSvg } from './utils'
+import dayjs from 'dayjs'
 export default class Gantt {
   $wrapper: HTMLElement 
   tasks: Task[] 
   options: GanttOptions 
   $svg: SVGElement //?? = null
   layers: any
-  constructor(el: ElementParam, tasks: Task[], options: GanttOptions) {
-    const wrapper = getElement(el)
+  constructor(el: ElementParam, tasks: TaskParam[], options: GanttOptions) {
+    const container = getElement(el)
 
-    if (!wrapper) {
-      console.error('[Gantt warn]: Can not resolve the wrapper DOM.')
+    if (!container) {
+      console.error('[Gantt warn]: Can not resolve the container DOM.')
       return
     }
     
 
     this.$svg = createSvg('svg', {
-      appendTo: wrapper,
       class: 'gantt'
     })
     this.$wrapper = document.createElement('div');
     this.$wrapper.classList.add('gantt-container');
 
-    const parent_element = this.$svg.parentElement as HTMLElement;
-    parent_element.appendChild(this.$wrapper);
+    container.appendChild(this.$wrapper);
     this.$wrapper.appendChild(this.$svg);
     // this.getWrapper(wrapper)
     this.processTaskParam(tasks)
@@ -40,8 +39,16 @@ export default class Gantt {
     this.options =  Object.assign({}, defaultOptions, options)
   }
 
-  processTaskParam(tasks: Task[]) {
-    this.tasks =  tasks
+  processTaskParam(tasks: TaskParam[]) {
+    this.tasks = tasks.map((task) => {
+      const _startTime = dayjs(task.startTime)
+      const _endTime = dayjs(task.endTime)
+      return {
+        ...task,
+        _startTime,
+        _endTime
+      }
+    })
   }
 
   setDates() {
@@ -52,7 +59,7 @@ export default class Gantt {
   setGanttDates() {
     this.ganttStart = this.ganttEnd = null
     for (let task of this.tasks) {
-      
+
     }
   }
 

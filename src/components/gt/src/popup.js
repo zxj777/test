@@ -8,14 +8,18 @@ export default class Popup {
     make() {
         this.parent.innerHTML = `
             <div class="title"></div>
-            <div class="subtitle"></div>
+            <div class="handler"></div>
+            <div class="start"></div>
+            <div class="end"></div>
             <div class="pointer"></div>
         `;
 
         this.hide();
 
         this.title = this.parent.querySelector('.title');
-        this.subtitle = this.parent.querySelector('.subtitle');
+        this.handler = this.parent.querySelector('.handler');
+        this.start = this.parent.querySelector('.start');
+        this.end = this.parent.querySelector('.end');
         this.pointer = this.parent.querySelector('.pointer');
     }
 
@@ -35,8 +39,10 @@ export default class Popup {
             this.pointer = this.parent.querySelector('.pointer');
         } else {
             // set data
-            this.title.innerHTML = options.title;
-            this.subtitle.innerHTML = options.subtitle;
+            this.title.innerHTML = `任务 ${options.title}`;
+            this.handler.innerHTML = `处理人 ${options.handler}`;
+            this.start.innerHTML = `预计开始 ${options.start_date}`;
+            this.end.innerHTML = `预计开始 ${options.end_date}`;
             this.parent.style.width = this.parent.clientWidth + 'px';
         }
 

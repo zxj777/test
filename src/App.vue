@@ -19,50 +19,56 @@ export default {
 			{
 				start: '2014-10-01',
 				end: '2014-10-08',
-				name: 'Redesign website',
+				name: '任务一',
 				id: "Task 0",
-				progress: 20
+				progress: 20,
+        handler: '张三'
 			},
 			{
 				start: '2014-10-03',
 				end: '2014-10-06',
-				name: 'Write new content',
+				name: '任务二',
 				id: "Task 1",
 				progress: 5,
-				dependencies: 'Task 0'
+				dependencies: 'Task 0',
+        handler: '张三'
 			},
 			{
 				start: '2014-10-04',
 				end: '2014-10-08',
-				name: 'Apply new styles',
+				name: '任务三',
 				id: "Task 2",
 				progress: 10,
-				dependencies: 'Task 1'
+				dependencies: 'Task 1',
+        handler: '张三'
 			},
 			{
 				start: '2014-10-08',
 				end: '2014-10-09',
-				name: 'Review',
+				name: '任务四',
 				id: "Task 3",
 				progress: 5,
-				dependencies: 'Task 2'
+				dependencies: 'Task 2',
+        handler: '张三'
 			},
 			{
 				start: '2014-10-08',
 				end: '2014-10-10',
-				name: 'Deploy',
+				name: '任务五',
 				id: "Task 4",
 				progress: 0,
-				dependencies: 'Task 2'
+				dependencies: 'Task 2',
+        handler: '张三'
 			},
 			{
 				start: '2014-10-11',
 				end: '2014-10-11',
-				name: 'Go Live!',
+				name: '任务六',
 				id: "Task 5",
 				progress: 0,
 				dependencies: 'Task 4',
-				custom_class: 'bar-milestone'
+				custom_class: 'bar-milestone',
+        handler: '张三'
 			},
 		],{
 			on_click: function (task) {
@@ -89,7 +95,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

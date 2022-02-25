@@ -210,8 +210,10 @@ export default class Bar {
         this.gantt.show_popup({
             target_element: this.$bar,
             title: this.task.name,
-            subtitle: subtitle,
+            start_date,
+            end_date,
             task: this.task,
+            handler: this.task.handler
         });
     }
 

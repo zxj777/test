@@ -12,7 +12,7 @@ export function createSvg(tag: keyof SVGElementTagNameMap, attrs: SVGElementAttr
   for (let attr in attrs) {
     if (attr === 'appendTo') {
         const parent = attrs.appendTo;
-        parent.appendChild(el);
+        parent && parent.appendChild(el);
     } else if (attr === 'innerHTML') {
         el.innerHTML = attrs.innerHTML as string;
     } else {
